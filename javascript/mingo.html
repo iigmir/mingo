@@ -4,10 +4,7 @@
         <title>Translotor between Mingo and Grego</title>
         <!-- <script src="mingo.js"></script> -->
         <script>
-function check(format) 
-{
-    return format;
-}
+function check(format) { return format; }
 
 function yearclac(YIY)
 {
@@ -39,12 +36,12 @@ function yearclac(YIY)
         <br>
         <form>
         What the format of that year is?
-        <input type="radio" name="format" onclick="check(this.value)" value="mingo" checked>Mingo
-        <input type="radio" name="format" onclick="check(this.value)" value="grego" >Grego
+        <input type="radio" name="format" onclick="check(value)" value="mingo" checked>Mingo
+        <input type="radio" name="format" onclick="check(value)" value="grego" >Grego
         <br>
         When that year is?<input type="text" onblur="inputyear(this.value)" name="inputyear">
         <br>
-        <input type="submit" onclick="yearcalc(this.value)" value="Submit">
+        <input type="submit" onsubmit="yearcalc(value)" value="Submit">
         </form>
         <br>
         <p id="output"></p>
