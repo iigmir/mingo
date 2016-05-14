@@ -9,8 +9,8 @@
         <br />
         <form>
             What the format of that year is? <br />
-            <input type="radio" name="format" value="mingo" id="mingo" checked>Mingo
-            <input type="radio" name="format" value="grego" id="grego" >Grego <br />
+            <input type="radio" id="mingo" checked>Mingo
+            <input type="radio" id="grego" >Grego <br />
             When that year is? <input type="text" name="inputyear" id="input_year" /> <br />
             <input id="getYear" type="submit">
         </form>
@@ -24,9 +24,7 @@
         var year_entered = document.getElementById("input_year").value;
         var mingo_format = document.getElementById("mingo").checked;
         var grego_format = document.getElementById("grego").checked;
-        var testy = mingo_format + " " + grego_format;
         document.getElementById('output').textContent = year_entered;
-        document.getElementById('formatopt').textContent = testy;
     });
         </script>
 </body>
