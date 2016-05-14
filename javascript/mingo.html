@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title> Year Calculator </title>
+        <title> Year Conventor </title>
         <meta charset="UTF-8" />
     </head>
     <body>
@@ -9,8 +9,8 @@
         <br />
         <form>
             What the format of that year is? <br />
-            <input type="radio" id="mingo" checked>Mingo
-            <input type="radio" id="grego" >Grego <br />
+            <input type="radio" id="mingo" checked>Mingo to Grego
+            <input type="radio" id="grego" >Grego to Mingo <br />
             When that year is? <input type="text" name="inputyear" id="input_year" /> <br />
             <input id="getYear" type="submit">
         </form>
@@ -21,10 +21,19 @@
     document.getElementById("getYear").addEventListener('click', function (e)
     {
         e.preventDefault();
-        var year_entered = document.getElementById("input_year").value;
+        // Get value
+        var year_entered = parseInt(document.getElementById("input_year").value);
         var mingo_format = document.getElementById("mingo").checked;
         var grego_format = document.getElementById("grego").checked;
-        document.getElementById('output').textContent = year_entered;
+        
+        // Calculate year
+        var mingo_to_grego = year_entered - 1911;
+        var grego_to_mingo = year_entered + 1911;
+        
+        // Print result
+        if ( isNaN(year_entered) ) { document.getElementById('output').textContent = "Error: Input is not number"; }
+        else if ( mingo_format === false ) { document.getElementById('output').textContent = mingo_to_grego; }
+        else { document.getElementById('output').textContent = grego_to_mingo; }
     });
         </script>
 </body>
