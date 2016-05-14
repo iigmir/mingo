@@ -3,26 +3,26 @@
     <head>
         <title> Year Calculator </title>
         <meta charset="UTF-8" />
-        <script>
-function year_calculator()
-{
-    var year_entered =  document.getElementById("input_year").value;
-    document.getElementById("output").innerHTML = year_entered; 
-}
-        </script>
     </head>
     <body>
         <h2>Confused what that year in Mingo year or Grego year? <br /> Here's the answer.</h2>
         <br />
         <form>
-            What the format of that year is?
-        <!-- <input type="radio" name="format" onclick="check(value)" value="mingo" checked>Mingo
+            What the format of that year is? <br />
+            <!-- <input type="radio" name="format" onclick="check(value)" value="mingo" checked>Mingo
         <input type="radio" name="format" onclick="check(value)" value="grego" >Grego -->
-            <br />
             When that year is? <input type="text" name="inputyear" id="input_year" /> <br />
-            <input type="submit" onclick="year_calculator();" />
+            <input id="getYear" type="submit">
         </form>
         <br />
         <p id="output"></p>
-    </body>
+        <script>
+     document.getElementById("getYear").addEventListener('click', function (e) {
+      e.preventDefault();
+      var year_entered = document.getElementById("input_year").value;
+      document.getElementById('output').textContent = year_entered;
+    });
+        </script>
+</body>
 </html>
+
