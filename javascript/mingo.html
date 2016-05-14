@@ -9,18 +9,24 @@
         <br />
         <form>
             What the format of that year is? <br />
-            <!-- <input type="radio" name="format" onclick="check(value)" value="mingo" checked>Mingo
-        <input type="radio" name="format" onclick="check(value)" value="grego" >Grego -->
+            <input type="radio" name="format" value="mingo" id="mingo" checked>Mingo
+            <input type="radio" name="format" value="grego" id="grego" >Grego <br />
             When that year is? <input type="text" name="inputyear" id="input_year" /> <br />
             <input id="getYear" type="submit">
         </form>
         <br />
         <p id="output"></p>
+        <p id="formatopt"></p>
         <script>
-     document.getElementById("getYear").addEventListener('click', function (e) {
-      e.preventDefault();
-      var year_entered = document.getElementById("input_year").value;
-      document.getElementById('output').textContent = year_entered;
+    document.getElementById("getYear").addEventListener('click', function (e)
+    {
+        e.preventDefault();
+        var year_entered = document.getElementById("input_year").value;
+        var mingo_format = document.getElementById("mingo").checked;
+        var grego_format = document.getElementById("grego").checked;
+        var testy = mingo_format + " " + grego_format;
+        document.getElementById('output').textContent = year_entered;
+        document.getElementById('formatopt').textContent = testy;
     });
         </script>
 </body>
