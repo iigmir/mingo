@@ -15,26 +15,80 @@
             <input id="getYear" type="submit">
         </form>
         <br />
+        <p id="ipt_year"></p>
         <p id="output"></p>
         <p id="formatopt"></p>
         <script>
-    document.getElementById("getYear").addEventListener('click', function (e)
-    {
-        e.preventDefault();
-        // Get value
-        var year_entered = parseInt(document.getElementById("input_year").value);
-        var mingo_format = document.getElementById("mingo").checked;
-        var grego_format = document.getElementById("grego").checked;
-        
-        // Calculate year
-        var mingo_to_grego = year_entered - 1911;
-        var grego_to_mingo = year_entered + 1911;
-        
-        // Print result
-        if ( isNaN(year_entered) ) { document.getElementById('output').textContent = "Error: Input is not number"; }
-        else if ( mingo_format === false ) { document.getElementById('output').textContent = mingo_to_grego; }
-        else { document.getElementById('output').textContent = grego_to_mingo; }
-    });
+            document.getElementById("getYear").addEventListener('click', function (e)
+            {
+                e.preventDefault();
+                // Get basic value
+                var year_entered = parseInt(document.getElementById("input_year").value);
+                var year_entered_abs = Math.abs(year_entered);
+                var mingo_format = document.getElementById("mingo").checked;
+                var grego_format = document.getElementById("grego").checked;
+                
+                // Calculate year
+                var mingo_to_grego = year_entered - 1911;
+                var grego_to_mingo = year_entered + 1911;
+                
+                // for negative number input
+                var mingo_input_abs = Math.abs(mingo_to_grego);
+                var grego_input_abs = Math.abs(grego_to_mingo);
+                
+                function year_name( yn_input_year )
+                {
+                    if ( mingo_format === true )
+                    {   // if mingo format
+                        if ( yn_input_year > 0 )
+                        {
+                            return yn_input_year + " Mingo year";
+                        }
+                        else
+                        {
+                            return yn_input_year + " year before ROC created";
+                        }
+                    } 
+                    else
+                    {   // if grego format
+                        if ( yn_input_year > 0 )
+                        {
+                            return yn_input_year + " A.D.";
+                        }
+                        else
+                        {
+                            return yn_input_year + " B.C.";
+                        }
+                    }
+                }
+                
+                // Print result
+                if ( isNaN(year_entered) )
+                {
+                    document.getElementById('ipt_year').textContent = "Error: Input is not number.";
+                    document.getElementById('output').textContent = "";
+                }
+                else
+                {
+                    var input_notfiy = "Year inputted: " + year_name( year_entered );
+                    var otpt_message = "Result: ";
+                    if ( mingo_format === true )
+                    {
+                        // input_notify(grego_to_mingo)
+                        document.getElementById('ipt_year').textContent = input_notfiy;
+                        // document.getElementById('output').textContent = grego_to_mingo;
+                        document.getElementById('output').textContent = otpt_message + year_name( grego_to_mingo );
+                        // otpt_message + year_name( grego_to_mingo );
+                    }
+                    else
+                    {
+                        document.getElementById('ipt_year').textContent = input_notfiy;
+                        // document.getElementById('output').textContent = mingo_to_grego;
+                        document.getElementById('output').textContent = otpt_message + year_name( mingo_to_grego );
+                        
+                    }
+                }
+            });
         </script>
 </body>
 </html>
