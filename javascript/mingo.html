@@ -25,7 +25,6 @@
                 
                 // Get basic value
                 var year_entered = parseInt(document.getElementById("input_year").value);
-                var year_entered_abs = Math.abs(year_entered);
                 var mingo_format = document.getElementById("mingo").checked;
                 var grego_format = document.getElementById("grego").checked;
                 
@@ -43,7 +42,7 @@
                         }
                         else
                         {
-                            return yn_input_year + " year before ROC created";
+                            return Math.abs(yn_input_year) + " year before ROC created";
                         }
                     } 
                     else
@@ -54,7 +53,7 @@
                         }
                         else
                         {
-                            return yn_input_year + " B.C.";
+                            return Math.abs(yn_input_year) + " B.C.";
                         }
                     }
                 }
