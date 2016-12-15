@@ -36,9 +36,9 @@
                 var mingo_input_abs = Math.abs(mingo_to_grego);
                 var grego_input_abs = Math.abs(grego_to_mingo);
                 
-                function year_name( yn_input_year )
+                function year_name( yn_input_year , yn_mingo_format )
                 {
-                    if ( mingo_format === true )
+                    if ( yn_mingo_format === true )
                     {   // if mingo format
                         if ( yn_input_year > 0 )
                         {
@@ -70,21 +70,17 @@
                 }
                 else
                 {
-                    var input_notfiy = "Year inputted: " + year_name( year_entered );
+                    var input_notfiy = "Year inputted: ";
                     var otpt_message = "Result: ";
                     if ( mingo_format === true )
                     {
-                        // input_notify(grego_to_mingo)
-                        document.getElementById('ipt_year').textContent = input_notfiy;
-                        // document.getElementById('output').textContent = grego_to_mingo;
-                        document.getElementById('output').textContent = otpt_message + year_name( grego_to_mingo );
-                        // otpt_message + year_name( grego_to_mingo );
+                        document.getElementById('ipt_year').textContent = input_notfiy + year_name( year_entered , true );
+                        document.getElementById('output').textContent = otpt_message + year_name( grego_to_mingo , false );
                     }
                     else
                     {
-                        document.getElementById('ipt_year').textContent = input_notfiy;
-                        // document.getElementById('output').textContent = mingo_to_grego;
-                        document.getElementById('output').textContent = otpt_message + year_name( mingo_to_grego );
+                        document.getElementById('ipt_year').textContent = input_notfiy + year_name( year_entered , false );
+                        document.getElementById('output').textContent = otpt_message + year_name( mingo_to_grego , true );
                         
                     }
                 }
