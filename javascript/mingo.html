@@ -22,6 +22,7 @@
             document.getElementById("getYear").addEventListener('click', function (e)
             {
                 e.preventDefault();
+                
                 // Get basic value
                 var year_entered = parseInt(document.getElementById("input_year").value);
                 var year_entered_abs = Math.abs(year_entered);
@@ -31,10 +32,6 @@
                 // Calculate year
                 var mingo_to_grego = year_entered - 1911;
                 var grego_to_mingo = year_entered + 1911;
-                
-                // for negative number input
-                var mingo_input_abs = Math.abs(mingo_to_grego);
-                var grego_input_abs = Math.abs(grego_to_mingo);
                 
                 function year_name( yn_input_year , yn_mingo_format )
                 {
@@ -61,7 +58,6 @@
                         }
                     }
                 }
-                
                 // Print result
                 if ( isNaN(year_entered) )
                 {
@@ -75,12 +71,12 @@
                     if ( mingo_format === true )
                     {
                         document.getElementById('ipt_year').textContent = input_notfiy + year_name( year_entered , true );
-                        document.getElementById('output').textContent = otpt_message + year_name( grego_to_mingo , false );
+                        document.getElementById('output').textContent   = otpt_message + year_name( grego_to_mingo , false );
                     }
                     else
                     {
                         document.getElementById('ipt_year').textContent = input_notfiy + year_name( year_entered , false );
-                        document.getElementById('output').textContent = otpt_message + year_name( mingo_to_grego , true );
+                        document.getElementById('output').textContent   = otpt_message + year_name( mingo_to_grego , true );
                         
                     }
                 }
